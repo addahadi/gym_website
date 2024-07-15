@@ -79,7 +79,6 @@ export const Search = ({setexercises , bodypart , setbodypart}) => {
         <Box sx={{position:"relative" , width:"100%" , p : "20px"}}>
             
             <Scrollbar data = {bodyparts} bodypart = {bodypart} setbodypart = {setbodypart}/>
-            <div>hi</div>
         </Box>
     </Stack>
   )
