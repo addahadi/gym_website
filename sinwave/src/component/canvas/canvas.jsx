@@ -7,8 +7,8 @@ import React from "react"
 
 const wave = {
     y: innerHeight/2,
-    ampluted :28,
-    length:0.01,
+    ampluted :20,
+    length:0.1,
 }
 
 function Canvas ({draw}) {

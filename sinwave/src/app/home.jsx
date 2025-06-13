@@ -5,6 +5,7 @@ import draw from "../../../data/data.js"
 import { Herobanner } from '../component/herobanner.jsx'
 import { Search } from '../component/search.jsx'
 import { useState } from 'react'
+import Exercises from '../component/exercises.jsx'
 export const Home = () => {
   let  [exercises , setexercises] = useState([])
   let  [bodypart , setbodypart] = useState("all")
@@ -13,6 +14,7 @@ export const Home = () => {
       <Herobanner/>
       <Canvas  draw = {draw}/>
       <Search setexercises={setexercises}   bodypart={bodypart} setbodypart={setbodypart} />
+      <Exercises setexercises={setexercises} exercises={exercises} bodypart={bodypart}/>
     </Box>
   )
 }

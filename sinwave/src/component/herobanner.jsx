@@ -15,7 +15,7 @@ export const Herobanner = () => {
             width:"150px",
             height:"30px",
             padding:"8px",
-            backgroundColor:"rgba(0, 0, 0, 0.7)",
+            backgroundColor:"rgba(0, 0, 0, 0.2)",
             marginBottom:"12px",
         }}        
         >
@@ -33,7 +33,7 @@ export const Herobanner = () => {
         </Typography>
         
         
-        <img src="../public/banner.png" className='hero-banner-img'/>
+        <img src="../public/Homepage.png" className='hero-banner-img'/>
         
         <Stack   width={{sm : 700 , xs : 400}} height={300} p="20px" m="auto" sx= {{
                  background:"hsla(33, 100%, 53%, 1)" , display:{lg:"none" , sm:"block" , xs:"block"},

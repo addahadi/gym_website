@@ -4,17 +4,19 @@ import draw from '../../data/data'
 
 import {Route , Routes} from 'react-router-dom'
 import {Box} from "@mui/material"
-import { Exercise } from './app/exercise.jsx'
+import ExerciseDetail from './app/exercise.jsx'
 import { Navbar } from './component/navbar.jsx'
 import {Home} from "./app/home.jsx"
+import Footer from './component/footer.jsx'
 function App() {
   return (
     <Box width="400px" sx={{width:{xl:"1488px" ,}}} m="auto">
       <Navbar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/exercise/:id' element={<Exercise/>}/>
+        <Route path='/exercise/:id' element={<ExerciseDetail/>}/>
       </Routes>
+      <Footer/>
     </Box>
   )
 }

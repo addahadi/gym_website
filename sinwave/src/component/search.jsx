@@ -8,10 +8,10 @@ import Scrollbar from './scrollbar'
 function searchlooping(data , search){
     let arr = []
     for(let i = 0 ; i < data.length ; i++){
-        if( data[i].name.include(search) 
-            || data[i].bodyPart.include(search) 
-            ||data[i].equipment.include(search)
-            || data[i].target.include(search)){
+        if( data[i].name.toLowerCase().includes(search) 
+            ||data[i].bodyPart.toLowerCase().includes(search) 
+            ||data[i].equipment.toLowerCase().includes(search)
+            ||data[i].target.toLowerCase().includes(search)){
                 arr.push(data[i])
             }
     }
@@ -21,6 +21,7 @@ function searchlooping(data , search){
 export const Search = ({setexercises , bodypart , setbodypart}) => {
   let  [search , setsearch] = useState("");
   let  [bodyparts , setbodyparts] = useState([])
+
   useEffect(()=>{
     async function FetchbodyPart(){
         const bodyParts = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList' , options)
@@ -28,11 +29,35 @@ export const Search = ({setexercises , bodypart , setbodypart}) => {
     }
     FetchbodyPart()
   },[])
+  useEffect(() => {
+    async function fetchExercisesByBodyPart() {
+      if (bodypart) {
+        const url =
+          bodypart === "all"
+            ? "https://exercisedb.p.rapidapi.com/exercises?limit=60&offset=0"
+            : `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodypart}?limit=60&offset=0`;
+
+        const data = await fetchData(url, options);
+
+        console.log(data)
+        setexercises(data);
+      }
+    }
+
+    fetchExercisesByBodyPart();
+  }, [bodypart]);
+  
 
   async function handlesearch(){
     if(search){
-        const exercisedata = await fetchData('https://exercisedb.p.rapidapi.com/exercises', options)
+        const exercisedata = await fetchData(
+          "https://exercisedb.p.rapidapi.com/exercises?limit=100&offset=0",
+          options
+        );
+        console.log(exercisedata)
+        
         const chosenexercise = searchlooping(exercisedata,search)
+        console.log(chosenexercise)
         setsearch('')
         setexercises(chosenexercise)
     }

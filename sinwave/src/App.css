@@ -24,20 +24,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #FF2625;
   font-size: 25px;
   border-radius: 4px;
   position: absolute;
-  bottom: -20px;
-  right: 80px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
-  width: 50px;
-  height: 50px;
+  top: 140px;
+  z-index: 100;
 }
 
 .right-arrow {
-  right: 140px;
+  right: 0px;
+}
+.left-arrow{
+  left: 0px;
 }
 
 .right-arrow:hover,
@@ -46,6 +46,16 @@
 }
 
 
+.container{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.container::-webkit-scrollbar{
+  display: none;
+}
+
 .bodyPart-card {
     transform: scale(1, 1);
     transition: 0.3s all ease-in-out;
@@ -53,12 +63,59 @@
   
   .exercise-card:hover,
   .bodyPart-card:hover {
-    transform: scale(1.1, 1.1);
+    border: none;
   }
 
 .react-horizontal-scrolling-menu--wrapper {
     width: 100%;
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
+}
+.react-horizontal-scrolling-menu--wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+
+.exercise-card {
+  width: 400px;
+  height: 445px;
+  background: #fff;
+  border-top: 4px solid hsla(33, 100%, 53%, 1);
+  border-bottom-left-radius: 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 10px;
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
+}
+
+.exercise-card img {
+  height: 326px;
+}
+
+.bodyPart-card {
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
+}
+
+.exercise-card:hover,
+.bodyPart-card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+th{
+  height: 50px;
+  text-align:left;
+}
+td{
+  height: 50px;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+tr{
+  width: 300px;
+}
+th,td{
+  padding-left: 80px;
 }
