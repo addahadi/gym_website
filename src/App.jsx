@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import './App.css'
-import draw from '../../data/data'
 
 import {Route , Routes} from 'react-router-dom'
 import {Box} from "@mui/material"
